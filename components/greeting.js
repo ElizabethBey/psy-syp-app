@@ -11,7 +11,7 @@ import colors from "../assets/colors"
 const Greeting = ({ navigation }) => {
   return (
     <SafeAreaView className="bg-white container h-full px-7">
-      <View className="flex justify-center items-center mt-24">
+      <View className="flex justify-center items-center mt-20">
         <Image
           source={require('./../assets/greeting.png')}
           style={{width: 400, height: 300}}
@@ -23,8 +23,8 @@ const Greeting = ({ navigation }) => {
       <Text className="text-left text-base pt-5"
             style={{ color: colors.textDark }}
       >
-        Пожалуйста войдите в аккаунт или зарегестрируйтесь, чтобы
-        начать
+        Пожалуйста войдите в аккаунт или зарегистрируйтесь, чтобы
+        начать.
       </Text>
 
       <View className="mt-6">

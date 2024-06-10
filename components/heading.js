@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Heading(props) {
   return (
-    <Text className="text-textDark text-4xl font-extrabold">
+    <Text className="text-textDark text-3xl font-extrabold">
       {props.content}
     </Text>
   );

@@ -1,7 +1,9 @@
-import { View, Image, TextInput } from "react-native";
 import React from "react";
 import { useState, useEffect } from "react";
+import { View, Image, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView } from "react-native-gesture-handler";
+
 
 import Heading from "./heading"
 import CustomButton from "./customButton"
@@ -60,20 +62,13 @@ const Registration = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView className="bg-white container h-full px-7">
-
-      <View className="flex justify-center items-center">
-        <Image
-          source={require('./../assets/signup.png')}
-          style={{width: 200, height: 100}}
-        />
-      </View>
+    <View className="bg-white container h-full px-7 py-20">
 
       <View className="mt-20">
         <Heading content="Регистрация" />
       </View>
 
-      <View className="mt-6">
+      <ScrollView className="mt-6">
       <TextInput
         onChangeText={setNickname}
         placeholder={"Никнейм"}
@@ -104,18 +99,18 @@ const Registration = ({ navigation }) => {
         value={password}
         className="bg-zinc-200 text-textgray mt-3 rounded-xl py-3 px-5"
       />
-      </View>
       <View className="mt-8">
         <CustomButton
             navigation={navigation}
             bgColor={colors.primary}
             textColor={colors.textWhite}
-            goto={"Greeting"}
+            goto={"Login"}
             content={"Зарегестрироваться"}
         />
       </View>
+      </ScrollView>
 
-    </SafeAreaView>
+    </View>
   );
 };
 

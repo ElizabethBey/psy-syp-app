@@ -4,6 +4,7 @@ import { useState } from "react";
 import colors from "../assets/colors"
 import Heading from "./heading"
 import CustomButton from "./customButton"
+import bottomNavigation from "./bottomNavigation";
 
 
 const Login = ({ navigation }) => {
@@ -12,7 +13,6 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView className="bg-white container h-full px-7">
-
       <View className="flex justify-center items-center mt-20">
         <Image
           source={require('./../assets/login.png')}
