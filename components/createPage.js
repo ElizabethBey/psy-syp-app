@@ -1,10 +1,9 @@
-import React from "react";
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import Heading from "./heading"
 import colors from "../assets/colors"
 
+import React from "react";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const CreatePage = ({ navigation }) => {
   return (

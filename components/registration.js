@@ -1,13 +1,11 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { View, Image, TextInput } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
-
-
 import Heading from "./heading"
 import CustomButton from "./customButton"
 import colors from "../assets/colors"
+
+import React from "react";
+import { useState, useEffect } from "react";
+import { View, TextInput } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 
 const Registration = ({ navigation }) => {

@@ -1,19 +1,21 @@
-import { StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-
 import colors from '../assets/colors';
 import Feed from './feed';
 import CreatePage from "./createPage";
 import Profile from './profile'
 
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+
+
 const Tab = createBottomTabNavigator();
 
 export default BottomNavigation = () => {
+
   return (
-    <NavigationContainer>
-          <Tab.Navigator initialRouteName="home" 
+    <NavigationContainer style={{ backgroundColor: "transparent" }}>
+          <Tab.Navigator initialRouteName="home"
               screenOptions={{
                 tabBarActiveTintColor: colors.textWhite,
                 tabBarInactiveTintColor: colors.ligthPrimary,
@@ -29,7 +31,7 @@ export default BottomNavigation = () => {
                 ),
               }}
             />
-            <Tab.Screen name="Добавить" component={CreatePage}
+            <Tab.Screen name="Создать" component={CreatePage}
               options={{
                 headerShown: false,
                 tabBarIcon: ({ color, size }) => (
@@ -40,7 +42,7 @@ export default BottomNavigation = () => {
               options={{
                 headerShown: false,
                 tabBarIcon: ({ color, size }) => (
-                  <Ionicons name="person-outline" size={size} color={color} />
+                  <Ionicons name="person" size={size} color={color} />
                 ),
               }}/>
           </Tab.Navigator>
@@ -51,17 +53,16 @@ export default BottomNavigation = () => {
 const styles = StyleSheet.create({
   bottomTabBar: {
     display: "flex",
-    position: 'absolute',
-    bottom: 5,
-    left: 10,
-    right: 10,
+    flex: 1,
+    alignContent: "center",
+    position: "absolute",
+    bottom: "1%",
+    left: "5%",
+    right: "5%",
     elevation: 5,
     backgroundColor: colors.primary,
     borderTopEndRadius: 30,
     borderTopStartRadius: 30,
-    height: 60,
-    margin: 5,
-    paddingTop: 5,
-    paddingBottom: 5,
+    height: "7%",
   },
 });

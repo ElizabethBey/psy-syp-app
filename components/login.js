@@ -1,10 +1,9 @@
-import { View, TextInput, SafeAreaView, Image } from "react-native";
-import { useState } from "react";
-
 import colors from "../assets/colors"
 import Heading from "./heading"
 import CustomButton from "./customButton"
-import bottomNavigation from "./bottomNavigation";
+
+import { View, TextInput, SafeAreaView, Image } from "react-native";
+import { useState } from "react";
 
 
 const Login = ({ navigation }) => {

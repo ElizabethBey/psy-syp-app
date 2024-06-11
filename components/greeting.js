@@ -1,11 +1,10 @@
-import React from "react";
-
-import { View, Text, TouchableOpacity, Image } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import Heading from "./heading"
 import CustomButton from "./customButton"
 import colors from "../assets/colors"
+
+import React from "react";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const Greeting = ({ navigation }) => {
