@@ -1,9 +1,7 @@
 import colors from "../assets/colors";
 
-
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Avatar, Button, Card, Text } from 'react-native-paper';
+import { Avatar, Card, Text } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -40,16 +38,5 @@ const Entry = props => {
   );
 };
 
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flex: 1,
-    position: 'absolute',
-    backgroundColor: colors.bgGray,
-    paddingTop: 30,
-    paddingLeft: 20,
-  },
-});
 
 export default Entry;

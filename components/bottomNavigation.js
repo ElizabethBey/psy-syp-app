@@ -15,7 +15,7 @@ export default BottomNavigation = () => {
 
   return (
     <NavigationContainer style={{ backgroundColor: "transparent" }}>
-          <Tab.Navigator initialRouteName="home"
+          <Tab.Navigator initialRouteName="add"
               screenOptions={{
                 tabBarActiveTintColor: colors.textWhite,
                 tabBarInactiveTintColor: colors.ligthPrimary,

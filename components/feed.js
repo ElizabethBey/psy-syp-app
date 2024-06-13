@@ -1,9 +1,10 @@
 import Heading from "./heading"
 import colors from "../assets/colors"
 import Entry from "./entry";
+import commonStyles from "./styles";
 
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-gesture-handler";
 import { useBottomTabBarHeight  } from '@react-navigation/bottom-tabs';
@@ -50,7 +51,7 @@ const Feed = ({ navigation }) => {
   );
 
   return (
-    <SafeAreaView style={[styles.container, { paddingBottom: tabBarHeight + 20}]}>
+    <SafeAreaView style={[commonStyles.container, { paddingBottom: tabBarHeight - 10}]}>
         <Heading content="Записи" />
         <FlatList
             data={entriesList}
@@ -62,16 +63,6 @@ const Feed = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flex: 1,
-    alignContent: "center",
-    position: "absolute",
-    height: "100%",
-    width: "100%",
-    backgroundColor: colors.bgGray,
-    paddingTop: 30,
-  },
   feed: {
     paddingTop: "3%",
     paddingLeft: "5%",
