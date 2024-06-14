@@ -13,6 +13,14 @@ const commonStyles = StyleSheet.create({
         backgroundColor: colors.bgGray,
         paddingTop: 30,
         },
+        simpleText: {
+            color: colors.textDark, 
+            fontSize: 18, 
+            //paddingTop: "3%", 
+            paddingLeft: "5%",
+            paddingRight: "5%",
+            paddingBottom: "5%" 
+        },
     }
 );
 

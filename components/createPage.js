@@ -2,13 +2,18 @@ import Heading from "./heading"
 import colors from "../assets/colors"
 import commonStyles from "./styles";
 import Topic from "./topic";
-import RadioGroup from "./radioGroup";
 
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, TextComponent } from "react";
+import { View, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useBottomTabBarHeight  } from '@react-navigation/bottom-tabs';
-import { TextInput, RadioButton, Button } from "react-native-paper";
+import { 
+    TextInput,
+    TouchableRipple,
+    Button,
+    Divider,
+    Switch,
+  } from "react-native-paper";
 
 
 const CreatePage = ({ navigation }) => {
@@ -20,28 +25,48 @@ const CreatePage = ({ navigation }) => {
 
   return (
     <SafeAreaView style={[commonStyles.container, { paddingBottom: tabBarHeight - 10}]}>
+      
+      <View style={styles.row}>
+        <Heading content="Новая запись"/>
+        <Button
+            mode="elevated"
+            compact
+            onPress={() => {}}
+            style={styles.button}
+            textColor={colors.textWhite}
+          >
+              Создать
+          </Button>
+      </View>
 
-      <Heading content="Новая запись"/>
+      <Divider horizontalInset="5%" bold="true"/>
+
+      <TouchableRipple onPress={() => setIsPrivate(!isPrivate)}>
+        <View style={[styles.row, { paddingBottom: 0, }]}>
+         <Text style={[commonStyles.simpleText, {paddingTop: "3%"}]}>Приватная запись</Text>
+          <View pointerEvents="none">
+            <Switch value={isPrivate} />
+          </View>
+        </View>
+      </TouchableRipple>
+
       <TextInput
         style={styles.largeInput}
-        selectionColor={colors.primary}
-        underlineColor="transparent"
-        mode="outlined"
+        multiline
+        selectionColor={colors.textWhite}
+        underlineColor={colors.textWhite}
+        mode="flat"
         value={content}
         onChangeText={ text => setContent(text) }
         placeholder="Введите текст"
       />
       
-      <Topic/>
-      <Topic/>
-      <Topic/>
-
-      <RadioGroup/>
-
-      
-      <Button mode="contained" onPress={() => {}}>
-        Создать
-      </Button> 
+      <Text style={commonStyles.simpleText}>Выберете темы записи</Text>
+      <View style={styles.chipRow}>
+        <Topic/>
+        <Topic/>
+        <Topic/>
+      </View>
 
     </SafeAreaView>
   );
@@ -49,18 +74,36 @@ const CreatePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   largeInput: {
-    //height: "100%",
-    backgroundColor: colors.textDark,
+    backgroundColor: colors.ligthPrimary,
     paddingTop: "3%",
     paddingLeft: "5%",
     paddingRight: "5%",
-    paddingBottom: "5%",
+    paddingBottom: "0%",
     margin: "5%",
+    height: "45%",
   },
   button: { 
     backgroundColor: colors.primary,
-    margin: 20, 
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    paddingRight: "5%",
+    paddingBottom: "3%",
+    //paddingTop:"3%",
+  },
+  item: {
+    padding: 10,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 5,
+  },
+  chipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingHorizontal: 12,
+  }
 });
 
 export default CreatePage;

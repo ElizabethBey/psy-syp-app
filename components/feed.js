@@ -8,6 +8,7 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-gesture-handler";
 import { useBottomTabBarHeight  } from '@react-navigation/bottom-tabs';
+import { Divider, } from "react-native-paper";
 
 
 const Feed = ({ navigation }) => {
@@ -53,6 +54,7 @@ const Feed = ({ navigation }) => {
   return (
     <SafeAreaView style={[commonStyles.container, { paddingBottom: tabBarHeight - 10}]}>
         <Heading content="Записи" />
+        <Divider horizontalInset="5%" bold="true"/>
         <FlatList
             data={entriesList}
             renderItem={renderItem}
@@ -64,10 +66,10 @@ const Feed = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   feed: {
-    paddingTop: "3%",
+    paddingTop: "6%",
     paddingLeft: "5%",
     paddingRight: "5%",
-    paddingBottom: "5%",
+    //paddingBottom: "3%",
   },
 });
 

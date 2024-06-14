@@ -8,7 +8,7 @@ import { View, StyleSheet } from "react-native";
 
 const Topic = () => (
     <View style={styles.chip}> 
-        <Chip icon="information" mode="outlined" 
+        <Chip elevated icon="information" mode="flat" 
             selectedColor={colors.primary}
             onPress={() => console.log('Pressed')}>
                 Topic
@@ -18,12 +18,7 @@ const Topic = () => (
 
 const styles = StyleSheet.create({ 
     chip: {
-        alignItems: 'center',
-        width: 120, 
-        marginLeft: 20, 
-        marginTop: 20, 
-        marginBottom: 10, 
-        elevation: 15,
+        margin: 4,
     }, 
   });
 

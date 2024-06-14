@@ -1,7 +1,7 @@
 import colors from "../assets/colors";
 
 import React from "react";
-import { Avatar, Card, Text } from 'react-native-paper';
+import { Avatar, Card, Text, IconButton } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -32,7 +32,12 @@ const Entry = props => {
             </Card.Content>
             <Card.Cover source={{ uri: 'https://tailwindcss.com/docs/height' }} />
             <Card.Actions>
-              <Ionicons name="chatbubbles" size={24} color={colors.primary} />
+              <IconButton
+                icon="comment"
+                size={22}
+                color={colors.primary}
+                onPress={() => console.log('Кнопка нажата')}
+              />
             </Card.Actions>
           </Card>
   );
