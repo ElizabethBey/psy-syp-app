@@ -2,8 +2,6 @@ import React from "react";
 import Greeting from "./components/greeting";
 import Login from "./components/login";
 import Registration from "./components/registration";
-import BottomNavigation from "./components/feed";
-
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';

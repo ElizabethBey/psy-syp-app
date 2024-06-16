@@ -1,8 +1,10 @@
 import colors from "../assets/colors";
 
 import React from "react";
+import { View, StyleSheet } from "react-native";
 import { Avatar, Card, Text, IconButton } from 'react-native-paper';
-import { Ionicons } from '@expo/vector-icons';
+import TopicsStuff from "../assets/allTopics";
+import commonStyles from "./styles";
 
 
 const Entry = props => {
@@ -19,9 +21,13 @@ const Entry = props => {
     const formattedDate = inputDate.replace(regex, '$2 $1')
     return formattedDate;
   }
-  
+
+  const getIcon = (topic) => (
+    TopicsStuff.allTopics.find(it => it.name === topic).icon
+  );
+
   return (
-        <Card elevation={5}>
+        <Card mode="elevated">
             <Card.Title
               title={props.entry.iduser}
               subtitle={formatDate(props.entry.posted)}
@@ -30,18 +36,45 @@ const Entry = props => {
             <Card.Content>
               <Text variant="bodyMedium" style={{ paddingBottom: 10 }}>{props.entry.content}</Text>
             </Card.Content>
-            <Card.Cover source={{ uri: 'https://tailwindcss.com/docs/height' }} />
-            <Card.Actions>
+            <Card.Cover source={require('./../assets/nature.jpg')} />
+            <Card.Actions style={styles.cardActions}>
+              <View style={styles.leftIcons}>
+                {props.entry.topics.map((item, index) => {
+                  const icon = getIcon(item);
+                  return (
+                    <IconButton
+                      key={index} // Не забудьте добавить ключ
+                      icon={icon}
+                      iconColor={colors.primary}
+                      size={22}
+                      style={{ borderColor: "transparent", margin: 0 }}
+                    />
+                  );
+                })}
+              </View>
               <IconButton
                 icon="comment"
+                iconColor={colors.primary}
                 size={22}
-                color={colors.primary}
-                onPress={() => console.log('Кнопка нажата')}
+                onPress={() => props.fun()}
+                style={commonStyles.circleIcon}
               />
             </Card.Actions>
           </Card>
   );
 };
 
+const styles = StyleSheet.create({
+  cardActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  leftIcons: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  
+});
 
 export default Entry;

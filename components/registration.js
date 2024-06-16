@@ -5,7 +5,6 @@ import colors from "../assets/colors"
 import React from "react";
 import { useState, useEffect } from "react";
 import { View, TextInput } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 
 
 const Registration = ({ navigation }) => {
@@ -66,7 +65,7 @@ const Registration = ({ navigation }) => {
         <Heading content="Регистрация" />
       </View>
 
-      <ScrollView className="mt-6">
+     
       <TextInput
         onChangeText={setNickname}
         placeholder={"Никнейм"}
@@ -106,7 +105,6 @@ const Registration = ({ navigation }) => {
             content={"Зарегестрироваться"}
         />
       </View>
-      </ScrollView>
 
     </View>
   );

@@ -5,4 +5,5 @@ export default {
     bgGray: "#e4e4e7",
     ligthPrimary: "#b99df9",
     superLight: "#e8dffd",
+    disabled: "#d2d3d3",
   };

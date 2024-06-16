@@ -1,19 +1,26 @@
-import { Text } from "react-native";
-import React from "react";
+import commonStyles from "./styles";
 import colors from "../assets/colors";
 
-export default function Heading(props) {
+
+import { Text, View } from "react-native";
+import React from "react";
+import { Divider, IconButton } from "react-native-paper";
+
+
+export default function Heading({ navigation, content, icon, goTo }) {
   return (
-    <Text style={{
-            color: colors.textDark, 
-            fontSize: 32, 
-            fontWeight: "bold", 
-            paddingTop: "3%", 
-            paddingLeft: "5%",
-            paddingRight: "5%",
-            paddingBottom: "5%" 
-            }}>
-      {props.content}
-    </Text>
+    <View>
+      <View style={[commonStyles.row, { paddingRight: "5%"}]}>
+          <Text style={[commonStyles.titleText]}> {content} </Text>
+          <IconButton
+            icon={icon}
+            iconColor={colors.primary}
+            size={35}
+            onPress={ () =>  navigation.navigate({ name: goTo })}
+            style={{ borderColor: "transparent", margin: 0 }}
+          />
+        </View>
+        <Divider horizontalInset="5%" bold="true" />
+    </View>
   );
 }
