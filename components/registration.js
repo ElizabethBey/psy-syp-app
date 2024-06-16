@@ -4,7 +4,7 @@ import colors from "../assets/colors"
 
 import React from "react";
 import { useState, useEffect } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 
 
 const Registration = ({ navigation }) => {
@@ -14,10 +14,10 @@ const Registration = ({ navigation }) => {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({}); 
   const [isFormValid, setIsFormValid] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => { 
     validateForm();
-    handleSubmit();
   }, [nickname, email, phone, password]);
 
   const validateForm = () => {
@@ -51,22 +51,25 @@ const Registration = ({ navigation }) => {
   };
 
   const handleSubmit = () => {
+      setMessage("");
       if (isFormValid) {
-          console.log('Ошибок нет'); 
+          console.log('Ошибок нет');
+          navigation.navigate("Login");
+          
       } else {
-          console.log('В форме есть ошибки'); 
+        setMessage("Некорректный ввод");
       }
   };
 
   return (
-    <View className="bg-white container h-full px-7 py-20">
+    <View className="bg-white container h-full px-7 py-15">
 
       <View className="mt-20">
         <Heading content="Регистрация" />
       </View>
 
-     
-      <TextInput
+     <View style={{paddingTop: "5%"}}>
+     <TextInput
         onChangeText={setNickname}
         placeholder={"Никнейм"}
         placeholderTextColor={colors.textDark}
@@ -96,14 +99,24 @@ const Registration = ({ navigation }) => {
         value={password}
         className="bg-zinc-200 text-textgray mt-3 rounded-xl py-3 px-5"
       />
-      <View className="mt-8">
-        <CustomButton
-            navigation={navigation}
-            bgColor={colors.primary}
-            textColor={colors.textWhite}
-            goto={"Login"}
-            content={"Зарегестрироваться"}
-        />
+     </View>
+      
+      <View className="mt-5">
+          <TouchableOpacity
+            className="mt-3 rounded-xl py-3"
+            style={{ elevation: 1, backgroundColor: colors.primary }}
+            onPress={handleSubmit}>
+          <Text
+            className="text-center text-base"
+            style={{ color: colors.textWhite }}>
+             Зарегистрироваться
+          </Text>
+        </TouchableOpacity>
+        {message && (
+          <Text className="mt-2 text-center text-sm text-gray-600 mt-5">
+              {message}
+          </Text>
+        )}
       </View>
 
     </View>

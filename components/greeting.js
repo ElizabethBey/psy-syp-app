@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Greeting = ({ navigation }) => {
   return (
-    <SafeAreaView className="bg-white container h-full px-7">
+    <SafeAreaView className="bg-white h-full px-5">
       <View className="flex justify-center items-center mt-20">
         <Image
           source={require('./../assets/greeting.png')}

@@ -5,7 +5,7 @@ import commonStyles from './components/styles';
 import Comment from './components/comment';
 
 import React, { useState, useRef } from "react";
-import { View, StyleSheet, Text, TextInput, FlatList, KeyboardAvoidingView, Platform  } from "react-native";
+import { View, StyleSheet, Text, TextInput, FlatList, KeyboardAvoidingView, Platform } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Modalize } from 'react-native-modalize'; 
@@ -35,10 +35,12 @@ export default function App() {
     }
   };
 
+  const onLogin = () => setAuth(false);
+
     return (
       <GestureHandlerRootView style={{ flex: 1 }}>
       {auth ? 
-        <Auth /> :
+        <Auth onLogin={onLogin} /> :
         <View style={{ flex: 1 }}>
           <StatusBar style="auto" />
           <BottomNavigation onOpenModal={openModal}/>

@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-gesture-handler";
-import { useBottomTabBarHeight  } from '@react-navigation/bottom-tabs';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Divider, IconButton, } from "react-native-paper";
 
 const Feed = ({ navigation, onOpenModal }) => {
@@ -27,31 +27,71 @@ const Feed = ({ navigation, onOpenModal }) => {
     },
     {
       "id": 2,
-      "iduser": 1,
+      "iduser": 2,
       "posted": "2024-05-11T08:30:26",
-      "content": "New public entry 2",
+      "content": "Kate's 1",
       "moderated": false,
       "visibility": "public",
       "topics": ["Стресс"]
     },
     {
       "id": 3,
-      "iduser": 1,
+      "iduser": 2,
       "posted": "2024-05-11T08:30:26",
-      "content": "New public entry 2",
+      "content": "Kate's 2",
       "moderated": false,
       "visibility": "public",
       "topics": ["Стресс", "Одиночество"]
     },
   ];
 
+  const users = [
+    {
+      "id": 1,
+      "username": "John",
+      "email": "john@email.com",
+      "phone": "89873660679",
+      "password": "123",
+      "birthday": "2004-05-04",
+      "gender": true,
+      "pfp": "bl.jpg",
+      "topics": []
+    },
+    {
+      "id": 2,
+      "username": "Kate",
+      "email": "kate@email.com",
+      "phone": "89875152536",
+      "password": "123",
+      "birthday": "2001-03-03",
+      "gender": false,
+      "pfp": "cat.jpg",
+      "topics": []
+    }
+  ];
+
   const [entriesList, setEntriesList] = useState(allEntries);
 
-  const renderItem = ({ item }) => (
-    <View style={styles.feed}>
-      <Entry entry={item} fun={onOpenModal} />
-    </View>
-  );
+  const renderItem = ({ item }) => {
+    console.log(users.find(it => it.id === item.iduser));
+    return (
+      <View style={styles.feed}>
+        <Entry entry={item} fun={onOpenModal} user1={
+          {
+            "id": 2,
+            "username": "Kate",
+            "email": "kate@email.com",
+            "phone": "89875152536",
+            "password": "123",
+            "birthday": "2001-03-03",
+            "gender": false,
+            "pfp": "cat.jpg",
+            "topics": []
+          }
+        } />
+      </View>
+    );
+  }
 
   const topicInteract = (t) => ( 
     topics.includes(t) ? setTopics(topics.filter(it => it !== t))

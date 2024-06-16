@@ -8,7 +8,8 @@ import {NavigationContainer} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
-export default function Auth(){
+export default function Auth({ onLogin }){
+  const LoginAct = () => (<Login onLogin={onLogin}/>);
 
     return <NavigationContainer>
         <Stack.Navigator>
@@ -21,7 +22,7 @@ export default function Auth(){
                 options={{ headerShown: false }}
             />
             <Stack.Screen name="Login"
-                component={Login}
+                component={LoginAct}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
